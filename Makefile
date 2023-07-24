@@ -36,6 +36,8 @@ publish:
 	$(eval $(call f_upgrade_version,nxt_version,$(kind),$(stage)))
 	$(eval confirm=$(shell read -p "Are you sure to publish { $(nxt_version) } <$(kind)>@<$(stage)> (y or n)?" value; echo $${value}))
 	@echo $(nxt_version) > VERSION
+	git commit -am "update VERSION file"
+	git push origin master
 	git tag "$(nxt_version)"
 	git push origin "$(nxt_version)"
 	GOPROXY=proxy.golang.org go list -m github.com/shawnwy/go-utils@$(nxt_version)
