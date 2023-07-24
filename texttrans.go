@@ -43,8 +43,7 @@ func (t *TextTrans) Prob(s string) float64 {
 }
 
 func (t *TextTrans) sublineProb(a, b rune) float64 {
-	key := BigramKey(a, b)
-	if prob, ok := t.matrix[key]; ok {
+	if prob, ok := t.matrix[BigramKey(a, b)]; ok {
 		return prob
 	}
 	return t.nonPatternProb

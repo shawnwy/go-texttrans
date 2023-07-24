@@ -1,4 +1,4 @@
-module github.com/shawnwy/texttrans.go
+module github.com/shawnwy/go-texttrans
 
 go 1.18
 
